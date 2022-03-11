@@ -1,4 +1,3 @@
-// const mongoose, { Schema } = require('../db/connection');
 const mongoose = require('../db/connection');
 const { Schema } = mongoose;
 

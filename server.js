@@ -4,7 +4,6 @@ const cors = require('cors');
 
 const attendeesController = require('./controllers/attendeesController');
 
-
 // NEW EXPRESS INSTANCE
 const app = express();
 

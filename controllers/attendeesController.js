@@ -7,6 +7,10 @@ const Attendee = require('../models/AttendeeModel');
 router.get('/', async (req, res) => {
   try {
     const attendees = await Attendee.find({});
+
+    if(!attendees) {
+      res.status(404).json({ message: 'No attendees found'});
+    }
     res.status(200).json(attendees);
   } catch (err) {
     console.log(err);
@@ -75,8 +79,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// Find attendee id #98 Mojo Jojo and delete them from the API
-
 // Delete attendee by id
 router.delete('/:id', async (req, res) => {
   try {
@@ -106,7 +108,6 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
-
 // Create a new attendee
 router.post('/', async (req, res) => {
   try {
@@ -126,6 +127,5 @@ router.post('/', async (req, res) => {
     res.status(500).json({ error: 'Server error'});
   }
 });
-
 
 module.exports = router;
